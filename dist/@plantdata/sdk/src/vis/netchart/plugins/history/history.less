@@ -1,0 +1,38 @@
+@import "../../../../define/index";
+
+.pdvis-namespace {
+  .pdvis-history-container {
+    .pdvis-float-item-detail {
+      padding: 0 0;
+      min-width: 252px;
+      max-width: 500px;
+      max-height: 320px;
+      .scroll();
+      .pdvis-history-item {
+        cursor: pointer;
+        line-height: 40px;
+        white-space: nowrap;
+        .line-hidden();
+        padding: 0 16px;
+        &:hover {
+          background: @color-general-ac06;
+        }
+        i {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: @color-primary;
+          display: inline-block;
+          margin-right: 4px;
+          vertical-align: 1px;
+        }
+      }
+      .pdvis-history-select {
+        //color: @color-emphasis;
+        i {
+          background: @color-emphasis;
+        }
+      }
+    }
+  }
+}

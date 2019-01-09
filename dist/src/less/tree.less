@@ -1,0 +1,143 @@
+@import "./define";
+
+html, body {
+  height: 100%;
+  .pdui-spin-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+}
+
+.autocomplete {
+  width: 100% !important;
+}
+
+.visible-options {
+  line-height: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-bottom: @divider-default;
+  padding-left: 16px;
+  & > span {
+    vertical-align: 5px;
+  }
+}
+
+#api-tree {
+  height: calc(~"100% - 80px");
+  background: white;
+  .scroll();
+  position: relative;
+  z-index: 2;
+  &:empty {
+    display: none;
+  }
+  & > ul {
+    padding-left: 0;
+    margin-top: 0;
+    & > li {
+      & > div {
+        .box-shadow-1;
+        height: 40px;
+        position: relative;
+        z-index: 1;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      & > ul {
+        background: @color-primary-05;
+      }
+      &.open + li {
+        border-top: @divider-default;
+      }
+    }
+  }
+  ul ul {
+    padding-left: 20px;
+  }
+  li {
+    list-style: none;
+    &.open {
+      & > div i {
+        transform: rotate(90deg);
+      }
+      & > ul {
+        display: block;
+        transition: all .3s;
+      }
+    }
+    &.closed {
+      & > ul {
+        display: none;
+        transition: all .3s;
+      }
+    }
+    .li-con {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      &:hover {
+        background: @color-primary-04;
+      }
+      &.active {
+        background: @color-primary;
+        color: white !important;
+        .text {
+          color: @color-font-03-inverse;
+        }
+      }
+      &.isStatic {
+        font-style: italic;
+      }
+      &.isProtected {
+        color: @color-font-04;
+      }
+      &.isPrivate {
+        color: @color-font-03;
+      }
+      &.isExported {
+        color: @color-font-05;
+      }
+      &.isOptional {
+        color: @color-font-03;
+      }
+      &.isAbstract {
+        color: @color-font-03;
+      }
+      i {
+        transition: all .3s;
+        vertical-align: middle;
+        display: inline-block;
+        width: 16px;
+        flex-shrink: 0;
+      }
+      .name {
+        margin-right: 8px;
+      }
+      .text {
+        color: #bbb;
+        font-size: 12px;
+        .line-hidden;
+      }
+    }
+  }
+  .tsd-kind-icon {
+    text-indent: 0;
+  }
+  .tsd-kind-icon:before {
+    flex: 0 0 auto;
+  }
+  &.id-api:not(.id-settings) {
+    li.tsd-kind-interface[level="3"] {
+      display: none;
+    }
+  }
+  &.id-settings:not(.id-api) {
+    li:not(.tsd-kind-interface)[level="3"] {
+      display: none;
+    }
+  }
+}

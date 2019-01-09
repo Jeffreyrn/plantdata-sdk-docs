@@ -1,0 +1,21 @@
+.pdui-card {
+    margin: 16px;
+    width: 80%;
+}
+
+.pdui-card .pdui-card {
+    margin: 16px;
+    width: 360px;
+}
+
+.pdui-card-head{
+    text-indent: 0;
+}
+
+.pdui-card-body{
+    text-indent: 2em;
+}
+
+.pdui-card-foot{
+    text-align: right;
+}

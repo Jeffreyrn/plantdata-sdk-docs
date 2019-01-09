@@ -1,0 +1,50 @@
+@import "../../../define/index";
+@import "mixins";
+
+.spin-keyframes() {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes spin-keyframes {
+  .spin-keyframes;
+}
+
+.@{spin-container-cls} {
+  display: inline-block;
+  position: relative;
+  .size(52px);
+  &.@{spin-cls}-xs {
+    .size(22px);
+  }
+  &.@{spin-cls}-sm {
+    .size(28px);
+  }
+  &.@{spin-cls}-md {
+    .size(52px);
+  }
+  &.@{spin-cls}-lg {
+    .size(84px);
+    &:after {
+      color: @spin-color;
+      content: 'loading';
+      font-size: 12px;
+      left: 20px;
+      line-height: 82px;
+      position: absolute;
+      top: 0;
+    }
+  }
+}
+
+.@{spin-cls} {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  .icon-spin(@spin-color, @size: 100%);
+  animation: spin-keyframes 2s infinite linear;
+}

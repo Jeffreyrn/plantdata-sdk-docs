@@ -1,0 +1,16 @@
+
+#container {
+    position: fixed;
+    top: 20px;
+    bottom: 0;
+    left: 20px;
+    right: 0;
+}
+
+#container2 {
+    position: fixed;
+    top: 20px;
+    bottom: 0;
+    left: 256px;
+    right: 0;
+}

@@ -1,0 +1,110 @@
+@import "../../../define/index";
+
+@autocomplete-cls: ~"@{css-prefix}autocomplete";
+@index-prompt: 900;
+
+.prompt-input-width(@icon-width) {
+  & > input[type=text] {
+    width: calc(~"100% - @{icon-width}");
+  }
+  &.has-value {
+    &.has-enter, &.has-close {
+      & > input {
+        width: calc(~"100% - @{icon-width} * 2");
+      }
+    }
+    &.has-enter.has-close > input {
+      width: calc(~"100% - @{icon-width} * 3");
+    }
+  }
+}
+
+.autofill-prompt() {
+  position: absolute;
+  z-index: @index-prompt;
+  border: @divider-default;
+  list-style: none;
+  padding: 0;
+  overflow: auto;
+  background: white;
+  li {
+    list-style: none;
+    padding: 0 8px;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    color: @color-font-04;
+    span {
+      word-break: keep-all;
+      white-space: nowrap;
+    }
+    &.on {
+      background: @color-general-ac05;
+    }
+    &:hover {
+      background: @color-general-ac06;
+    }
+    &.no-data {
+      cursor: default;
+    }
+  }
+  &:empty {
+    display: none;
+  }
+}
+
+.normal-prompt() {
+  &.@{autocomplete-cls}{
+    border-radius: @border-radius;
+  }
+  ul.@{autocomplete-cls}-prompt {
+    .box-shadow-1;
+    border: 0;
+    width: 100%;
+    margin-left: 0;
+    li {
+      .highlight {
+        font-weight: bold;
+        color: @color-font-05;
+      }
+    }
+  }
+}
+
+.autocomplete-size(@main-height:32px, @main-width: 200px, @main-font-size:14px, @icon-font-size:16px, @icon-size:20px, @icon-gutter:6px,@item-height:32px, @item-font-size:12px) {
+  &.@{autocomplete-cls} {
+    width: @main-width;
+    height: @main-height;
+    border-radius: @main-height / 2 + 1px;
+    & > *:not(input):not(ul) {
+      font-size: @icon-size;
+      width: @icon-size;
+      height: @icon-size;
+      margin: (@main-height - @icon-size - 2px )/ 2 @icon-gutter 0 0;
+      &:first-child {
+        margin-right: 0;
+        margin-left: @icon-gutter;
+        margin-top: (@main-height - @icon-size - 2px )/ 2 + 1px;
+      }
+    }
+    & > input[type=text] {
+      font-size: @main-font-size;
+    }
+    ul.@{autocomplete-cls}-prompt {
+      top: @main-height - 1px;
+    }
+    .prompt-input-width(@icon-size + @icon-gutter);
+  }
+  ul.@{autocomplete-cls}-prompt& {
+    margin: 0 0 0 @main-height/2;
+    width: calc(~"@{main-width} - @{main-height}");
+    max-height: @item-height * 5;
+    li {
+      line-height: @item-height;
+      height: @item-height;
+      font-size: @item-font-size;
+    }
+  }
+}

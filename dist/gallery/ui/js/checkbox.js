@@ -1,0 +1,1 @@
+document.getElementById('checkbox-dynamic').innerHTML = PdUICheckbox.create({cls: 'pdui-dynamic', input: {}, html: ''});

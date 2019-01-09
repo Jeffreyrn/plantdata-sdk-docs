@@ -1,0 +1,69 @@
+@import "../../../define/index";
+
+.pdvis-namespace {
+  .pdvis-tools-container {
+    width: 150px;
+  }
+  .pdvis-tool-item {
+    height: 40px;
+    min-height: 40px;
+    line-height: 24px;
+    width: 100%;
+    position: relative;
+    padding: 0 8px;
+    border: 0;
+    .pdvis-tool-item-icon, .pdvis-tool-item-more {
+      width: 20px;
+      height: 20px;
+      display: block;
+      position: absolute;
+      left: 8px;
+      top: 10px;
+      .transition;
+      svg {
+        fill: @color-font-03;
+        .transition;
+      }
+    }
+    .pdvis-tool-item-text {
+      padding-left: 32px;
+      display: block;
+      .line-hidden;
+    }
+    .pdvis-tool-item-more {
+      left: auto;
+      right: 8px;
+      & ~ .pdvis-tool-item-text {
+        padding-right: 28px;
+      }
+    }
+    &:hover:not([disabled]) {
+      background: @color-primary-05;
+      color: @color-primary;
+      & > .pdvis-tool-item-icon svg {
+        fill: @color-primary;
+      }
+      & > .pdvis-tools-container {
+        display: block;
+      }
+    }
+    &[disabled] {
+      color: @color-font-02;
+      svg {
+        fill: @color-font-02;
+      }
+    }
+    & > .pdvis-tools-container {
+      left: 100%;
+      top: 0;
+      white-space: normal;
+      position: absolute;
+      .box-shadow;
+      display: none;
+      z-index: 1;
+      .pdvis-tool-item-icon{
+        display: none;
+      }
+    }
+  }
+}

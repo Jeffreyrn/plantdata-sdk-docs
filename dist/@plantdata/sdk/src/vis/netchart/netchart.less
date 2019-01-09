@@ -1,0 +1,86 @@
+@import "../../define/index";
+
+.pdvis-namespace.pdvis {
+  .pdvis-link-info-container {
+    position: absolute;
+    left: 0;
+    top: 100px;
+    z-index: 1;
+    background: @color-light;
+    border-radius: 4px;
+    max-width: 400px;
+    .box-shadow-1;
+    &:empty {
+      display: none;
+    }
+    b {
+      padding: 0 16px;
+      line-height: 30px;
+      font-weight: normal;
+    }
+  }
+  .pdvis-link-info {
+    padding: 16px 0;
+    li {
+      margin-top: 16px;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    table {
+      th, td {
+        text-align: left;
+        padding: 4px 8px;
+        &:first-child {
+          padding-left: 24px;
+        }
+        &:last-child {
+          padding-right: 24px;
+        }
+      }
+    }
+  }
+  .pdvis-link-info {
+    & > li {
+      padding: 0 16px;
+    }
+    th {
+      background: @color-primary-04;
+      border-top: @divider-default;
+      line-height: 22px;
+      padding: 4px 10px !important;
+      &:first-child {
+        border-left: @divider-default;
+      }
+      &:last-child {
+        border-right: @divider-default;
+      }
+    }
+    tbody {
+      td {
+        line-height: 22px;
+        padding: 4px 10px !important;
+        &:first-child {
+          border-left: @divider-default;
+        }
+        &:last-child {
+          border-right: @divider-default;
+        }
+        div.pdvis-link-info-value {
+          max-width: 180px;
+          white-space: pre-wrap;
+        }
+      }
+      tr:last-child {
+        td {
+          border-bottom: @divider-default;
+        }
+      }
+    }
+  }
+  &.pdvis-view-multi{
+    .pdvis-panels-float.pdvis-panels-float-bottom {
+      bottom: 40px;
+    }
+  }
+}

@@ -1,0 +1,108 @@
+@import "../../../define/index";
+
+.pdvis-namespace {
+  .pdvis-data-view-container {
+    .pdvis-data-view-head {
+      .font-display-2;
+      padding: 0 24px;
+      height: 72px;
+      line-height: 72px;
+    }
+    .pdvis-data-view-body {
+      padding: 0 24px 24px;
+      .pdvis-data-view-data-stats {
+        margin-bottom: 24px;
+        .pdui-card-body {
+          height: 300px;
+        }
+        .pdvis-data-view-stats-item {
+          height: 268px;
+          width: calc(~"50% - 8px");
+          &:first-child {
+            float: left;
+          }
+          &:last-child {
+            float: right;
+          }
+        }
+      }
+      .pdui-card-body {
+        padding: 16px;
+      }
+      .pdvis-data-view-infobox, .pdvis-data-view-link {
+        cursor: pointer;
+        &:hover {
+          color: @color-primary;
+        }
+      }
+    }
+    .pdvis-data-view-extra-info {
+      position: absolute;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      background: white;
+      margin-left: 20px;
+      transform: translateX(-80%);
+      .box-shadow-3;
+      display: none;
+      .pdsdk-infobox, .pdvis-data-view-link-detail {
+        background: white;
+        max-height: 320px;
+        position: relative;
+        z-index: 2;
+        .scroll;
+      }
+      .pdsdk-infobox {
+        width: 320px;
+        min-height: 100px;
+      }
+      .pdvis-data-view-link-detail {
+        max-width: 500px;
+        .scroll(@width: 8px);
+        th div.pdvis-link-info-key, td div.pdvis-link-info-value {
+          white-space: nowrap;
+        }
+      }
+      .pdvis-data-view-infobox-arrow {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: white;
+        transform: rotate(45deg);
+        .box-shadow-3;
+        left: 80%;
+        margin-left: -8px;
+        z-index: 1;
+      }
+      &[data-infobox-position="top"] {
+        top: auto !important;
+        margin-bottom: 8px;
+        .pdvis-data-view-infobox-arrow {
+          bottom: -5px;
+        }
+      }
+      &[data-infobox-position="bottom"] {
+        margin-top: 28px;
+        bottom: auto !important;
+        .pdvis-data-view-infobox-arrow {
+          top: -5px;
+        }
+      }
+      &[data-infobox-position="center"] {
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        margin: 0 !important;
+        .pdvis-data-view-infobox-arrow {
+          display: none;
+        }
+      }
+    }
+  }
+  &[data-pdview="dataView"] {
+    .pdvis-panels-float-top {
+      margin-left: 136px;
+    }
+  }
+}

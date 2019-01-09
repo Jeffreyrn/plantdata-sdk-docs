@@ -1,0 +1,1 @@
+document.getElementById('input-dynamic').innerHTML = PdUIInput.create({cls: 'pdui-dynamic'});

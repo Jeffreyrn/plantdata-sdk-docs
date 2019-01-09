@@ -1,0 +1,42 @@
+@import "../../../define/index";
+
+@switch-cls: ~"@{css-prefix}switch";
+@color-switch-pointer: @color-light;
+@color-switch-text: @color-light;
+
+.switch-size (@width:48px,@height:24px,@roundSize:20px) {
+  @gap: (@height - @roundSize) / 2;
+  @textWidth: 22px;
+  height: @height;
+  & > input {
+    & + * {
+      border-radius: @height;
+      height: @height;
+      min-width: @width;
+      & > * {
+        width: @textWidth;
+        line-height: @height;
+        text-align: center;
+      }
+      & + * {
+        width: @roundSize;
+        height: @roundSize;
+        left: @gap;
+        top: @gap;
+      }
+    }
+    &:checked + * {
+      & + * {
+        left: calc(~"100% - @{roundSize} - @{gap}") ;
+      }
+    }
+  }
+}
+
+.switch-xs() {
+  margin: 5px 0;
+}
+
+.switch-md() {
+  margin: 8px 0;
+}

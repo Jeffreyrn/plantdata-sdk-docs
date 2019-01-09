@@ -1,0 +1,93 @@
+@import "../../../../define/index";
+
+.pdvis-namespace {
+  .pdvis-chart-filter-panel {
+    .pdvis-edit-item[data-path="attAttFilters"] {
+      .pdvis-edit-item-content {
+        .pd-no-data {
+          padding: 16px 0;
+        }
+        .pdsdk-filter-add {
+          padding: 8px 8px;
+          button {
+            width: 100%;
+            svg {
+              vertical-align: -7px;
+              fill: @color-primary;
+            }
+            &:hover {
+              svg {
+                fill: @color-light;
+              }
+            }
+          }
+        }
+        .pdvis-filter-edge-tags {
+          margin: 8px 8px 0;
+          border-bottom: @divider-default;
+          display: none;
+          &:not(:empty) {
+            display: block;
+          }
+        }
+        .pdvis-filter-edge-tag-item {
+          width: 100%;
+          margin-bottom: 8px;
+          position: relative;
+          padding-right: 32px;
+          .line-hidden;
+          .close-icon {
+            position: absolute;
+            right: 8px;
+            top: 10px;
+          }
+        }
+      }
+    }
+  }
+  .pdvis-filter-att-item {
+    //margin: 8px 8px 16px;
+    //border-bottom: @divider-default;
+    //padding-bottom: 8px;
+    .pdvis-filter-att-edge, .pdvis-filter-att-edge-att, .pdvis-filter-att-type {
+      width: 33%;
+      display: inline-block;
+      margin-bottom: 8px;
+      margin-right: 8px;
+      select {
+        width: 100%;
+      }
+    }
+    .pdvis-filter-att-type {
+      width: calc(~"34% - 16px");
+      margin-right: 0;
+    }
+    .pdvis-filter-att-start, .pdvis-filter-att-end {
+      width: calc(~"50% - 4px");
+      display: inline-block;
+      margin-bottom: 8px;
+      margin-right: 8px;
+      input {
+        width: 100%;
+      }
+    }
+    .pdvis-filter-att-end {
+      margin-right: 0;
+    }
+    .pdvis-filter-att-prompt {
+      margin-bottom: 8px;
+      .pdui-autocomplete {
+        width: 100%;
+      }
+    }
+    .pdvis-filter-att-list {
+      max-height: 200px;
+      .scroll();
+    }
+    .pdvis-cr-box > label {
+      padding: 0 16px 0 0;
+      width: 120px;
+      .line-hidden;
+    }
+  }
+}

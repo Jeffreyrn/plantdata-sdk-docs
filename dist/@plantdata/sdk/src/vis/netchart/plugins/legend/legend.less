@@ -1,0 +1,60 @@
+@import "../../../../define/index";
+
+@columns-width: 100px;
+.legend-width(@columns:1) {
+  width: @columns-width * @columns;
+}
+
+.pdvis-namespace {
+  .pdvis-legend {
+    color: @color-font-04;
+    font-size: 12px;
+    line-height: 20px;
+    overflow: auto;
+    max-height: 300px;
+    .scroll();
+    .legend-width(1);
+    .pdvis-legend-item {
+      .line-hidden();
+      .transition();
+      display: inline-block;
+      width: @columns-width;
+      color: @color-font-03;
+      font-size: 12px;
+      padding-left: 8px;
+      cursor: pointer;
+      height: 20px;
+      line-height: 20px;
+      i {
+        display: inline-block;
+        border-style: solid;
+        margin-right: 4px;
+        .transition();
+      }
+      &.disabled {
+        display: none;
+      }
+      &.pdvis-legend-item-dashed i {
+        border-style: dashed;
+      }
+      &:hover {
+        background: @color-light;
+        color: @color-font-05;
+        font-size: 14px;
+      }
+      &.vague:not(.active), &.inactive {
+        opacity: 0.5;
+        i {
+          border-color: @color-general-ac03 !important;
+        }
+      }
+      &.off i {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+
+}

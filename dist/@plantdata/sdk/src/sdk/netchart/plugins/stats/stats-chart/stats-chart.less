@@ -1,0 +1,95 @@
+@import "../../../../../define/index";
+
+.pdvis-namespace {
+  .pdsdk-stats-chart {
+    .pdsdk-stats-chart-body {
+      &:not(:empty) {
+        padding-top: 10px;
+      }
+    }
+    .pdsdk-stats-chart-add {
+      padding: 8px 8px;
+      display: none;
+      button {
+        width: 100%;
+        svg {
+          vertical-align: -7px;
+          fill: @color-primary;
+        }
+        &:hover {
+          svg {
+            fill: @color-light;
+          }
+        }
+      }
+    }
+    &.pdsdk-stats-chart-edit-true {
+      .pdsdk-stats-chart-add {
+        display: block;
+      }
+    }
+  }
+  @label-width: 120px;
+  &.pdsdk-stats-chart-add-dialog {
+    .pdvis-edit-item.pdvis-edit-item-single {
+      & > label[title] {
+        width: @label-width;
+      }
+      & > .pdvis-edit-item-select {
+        width: calc(~"100% - @{label-width}");
+      }
+    }
+    .pdsdk-stats-chart-item {
+      .pdsdk-stats-chart-editor {
+        width: 100%;
+        .pdsdk-stats-chart-edit-form {
+          padding: 0 8px;
+          & > * {
+            margin: 8px 0;
+            position: static;
+          }
+          .pdsdk-stats-chart-edit-icon {
+            display: none;
+          }
+          label {
+            width: @label-width;
+            line-height: 32px;
+            float: left;
+          }
+          .pdsdk-stats-chart-edit-title {
+            input {
+              width: calc(~"100% - @{label-width}");
+            }
+          }
+          .pdsdk-stats-chart-edit-x, .pdsdk-stats-chart-edit-y {
+            select {
+              width: calc(~"100% - @{label-width}");
+            }
+          }
+        }
+        &.pdsdk-stats-entity-attrvalue {
+          .pdsdk-stats-chart-edit-x {
+            select {
+              width: calc(~"(100% - @{label-width}) / 2");
+            }
+          }
+        }
+        &.pdsdk-stats-relation-attrvalue {
+          .pdsdk-stats-chart-edit-x {
+            select {
+              width: calc(~"(100% - @{label-width}) / 3");
+            }
+          }
+        }
+        .pdsdk-stats-chart-edit-merge {
+          .pdvis-edit-item-select {
+            width: calc(~"100% - @{label-width}");
+          }
+        }
+      }
+      .pdsdk-stats-chart-edit-control {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@import "mixins";
+
+.@{btn-cls} {
+  .btn();
+  .btn-md;
+  &&-xs {
+    .btn-xs;
+  }
+  &&-sm {
+    .btn-sm;
+  }
+  &&-md {
+    .btn-md;
+  }
+  &&-lg {
+    .btn-lg;
+  }
+
+  &&-primary {
+    .btn-primary();
+  }
+  &&-primary-outline {
+    .btn-primary-outline();
+  }
+  &[disabled], &.disabled {
+    .disabled
+  }
+  &:focus {
+    text-decoration: none;
+  }
+}

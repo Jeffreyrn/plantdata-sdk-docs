@@ -1,0 +1,65 @@
+@import "../../../../define/index";
+
+.pdvis-namespace {
+  .pdvis-panels-float-top .pdvis-panels-float-item.pdsdk-prompt {
+    margin-left: 0;
+  }
+  .pdvis-panels-float-left, .pdvis-panels-float-right {
+    .pdvis-panels-float-item.pdsdk-prompt {
+      position: relative !important;
+      height: auto;
+      line-height: 40px;
+      min-height: 40px;
+      & > svg {
+        margin-bottom: 8px;
+      }
+      & > input {
+        height: 40px;
+        line-height: 40px;
+      }
+      ul.pdui-autocomplete-prompt {
+        position: relative;
+        top: 0;
+      }
+    }
+  }
+  .pdsdk-prompt {
+    position: absolute !important;
+    z-index: 2;
+    width: 200px;
+    border: 0;
+    .border-radius();
+    .box-shadow();
+    .transition();
+    height: 40px;
+    &.active, &:hover {
+      width: 240px !important;
+      //border-color: @color-primary;
+    }
+    input[type=text] {
+      border-radius: 2px;
+    }
+    svg {
+      margin: 10px 5px;
+      &:hover {
+        fill: @color-primary;
+      }
+    }
+    ul.pdui-autocomplete {
+      width: calc(~"100% + 0px");
+      margin-left: 0;
+      top: 38px;
+      .box-shadow();
+      border-width: 1px 0 0 0;
+      border-radius: 0 0 2px 2px;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .pdvis-namespace.pdvis {
+    .pdsdk-prompt {
+      width: 40px;
+    }
+  }
+}

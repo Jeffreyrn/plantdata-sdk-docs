@@ -1,0 +1,482 @@
+@import "../../../define/index";
+@import "mixins";
+
+@keyframes slit {
+  50% {
+    transform: translateZ(-250px) rotateY(89deg);
+    opacity: 1;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateZ(0) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateRightSideFirst {
+  50% {
+    transform: translateZ(-50px) rotateY(5deg);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: translateZ(-200px);
+  }
+}
+
+@keyframes OpenTop {
+  50% {
+    transform: rotateX(10deg);
+    animation-timing-function: ease-out;
+  }
+}
+
+.@{modal-cls}-perspective {
+  &, & body {
+    height: 100%;
+    overflow: hidden;
+  }
+  & body {
+    perspective: 600px;
+    background: #222;
+  }
+}
+
+.@{modal-cls} {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  max-width: 600px;
+  min-width: 300px;
+  height: auto;
+  z-index: @index-modal;
+  visibility: hidden;
+  backface-visibility: hidden;
+  .transform(translateX(-50%) translateY(-50%));
+  &.@{modal-cls}-xl {
+    @width: 1500px;
+    width: @width;
+    max-width: @width;
+  }
+  &.@{modal-cls}-lg {
+    @width: 900px;
+    width: @width;
+    max-width: @width;
+  }
+  &.@{modal-cls}-md {
+    @width: 600px;
+    width: @width;
+    max-width: @width;
+  }
+  &.@{modal-cls}-sm {
+    @width: 300px;
+    width: @width;
+    max-width: @width;
+  }
+  &.@{modal-cls}-xs {
+    @width: 200px;
+    width: @width;
+    max-width: @width;
+  }
+  &.@{modal-cls}-show {
+    visibility: visible;
+    & ~ .@{modal-cls}-backdrop {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .@{modal-cls}-content {
+    background: @modal-color;
+    position: relative;
+    .border-radius;
+    margin: 0 auto;
+    .box-shadow-3;
+    @gutter: 24px;
+    .@{modal-cls}-head {
+      @head-height: 48px;
+      height: @head-height;
+      padding: 0 @gutter;
+      border-bottom: @divider-default;
+      .@{modal-cls}-title {
+        .font-title;
+        width: calc(~"100% - @{gutter}");
+        float: left;
+        line-height: @head-height;
+        .line-hidden;
+      }
+      svg.@{modal-cls}-close {
+        float: right;
+        width: 24px;
+        height: 24px;
+        line-height: @head-height;
+        cursor: pointer;
+        fill: @color-font-03;
+        margin-top: 12px;
+        &:hover {
+          fill: @color-primary;
+        }
+      }
+      i.@{modal-cls}-close {
+        float: right;
+        font-size: 24px;
+        line-height: @head-height;
+        cursor: pointer;
+        &:hover {
+          color: @color-primary;
+        }
+      }
+    }
+    .@{modal-cls}-body {
+      padding: @gutter;
+      min-height: 160px;
+    }
+    .@{modal-cls}-foot {
+      padding: 0 @gutter @gutter;
+      text-align: right;
+      button:not(:first-child) {
+        margin-left: 13px;
+      }
+    }
+  }
+
+  &:not([@{modal-effect-att}]) {
+    .@{modal-cls}-content {
+      opacity: 0;
+      .transition;
+    }
+    &.@{modal-cls}-show .@{modal-cls}-content {
+      opacity: 1;
+    }
+  }
+
+  &[@{modal-effect-att}='0'] {
+    .@{modal-cls}-content {
+      transform-origin: 0 0;
+      opacity: 0;
+      .transition;
+    }
+    &.@{modal-cls}-show .@{modal-cls}-content {
+      .transform(translateX(0) translateY(0) scale(1)) !important;
+      opacity: 1;
+    }
+  }
+
+  &[@{modal-effect-att}='1'] {
+    .@{modal-cls}-content {
+      .transform(scale(0.7));
+      opacity: 0;
+      .transition(@duration: 0.3s, @timing: linear);
+    }
+    &.@{modal-cls}-show .@{modal-cls}-content {
+      .transform(scale(1));
+      opacity: 1;
+    }
+  }
+
+  &[@{modal-effect-att}='2'] {
+    .@{modal-cls}-content {
+      .transform(translateX(20%));
+      opacity: 0;
+      .transition(@duration: 0.3s, @timing: cubic-bezier(0.25, 0.5, 0.5, 0.9));
+    }
+    &.@{modal-cls}-show .@{modal-cls}-content {
+      .transform(translateX(0));
+      opacity: 1;
+    }
+  }
+
+  &[@{modal-effect-att}='3'] {
+    .@{modal-cls}-content {
+      .transform(translateY(20%));
+      opacity: 0;
+      .transition(@duration: 0.3s, @timing: linear);
+    }
+    &.@{modal-cls}-show .@{modal-cls}-content {
+      .transform(translateY(0));
+      opacity: 1;
+    }
+  }
+
+  &[@{modal-effect-att}='4'] {
+    .@{modal-cls}-content {
+      .transform(scale(0) rotate(720deg));
+      opacity: 0;
+    }
+    &.@{modal-cls}-show .@{modal-cls}-content {
+      .transform(scale(1) rotate(0deg));
+      opacity: 1;
+    }
+    .@{modal-cls}-content, & ~ .@{modal-cls}-backdrop {
+      .transition(@duration: 0.5s,@timing: linear);
+    }
+  }
+
+  &[@{modal-effect-att}='5'] {
+    perspective: 1300px;
+    .@{modal-cls}-content {
+      transform-style: preserve-3d;
+      .transform(translateZ(600px) rotateX(20deg));
+      opacity: 0;
+    }
+    &.@{modal-cls}-show .@{modal-cls}-content {
+      .transition(@duration: 0.3s, @timing: ease-in);
+      .transform(translateZ(0) rotateX(0deg));
+      opacity: 1;
+    }
+  }
+
+  &[@{modal-effect-att}='6'] {
+    perspective: 1300px;
+    .@{modal-cls}-content {
+      transform-style: preserve-3d;
+      .transform(translate(30%) translateZ(600px) rotate(10deg));
+      opacity: 0;
+    }
+    &.@{modal-cls}-show .@{modal-cls}-content {
+      .transition(@duration: 0.3s, @timing: ease-in);
+      .transform(translate(0) translateZ(0) rotate(0deg));
+      opacity: 1;
+    }
+  }
+
+  &[@{modal-effect-att}='7'] {
+    top: 0;
+    .transform(translateX(-50%));
+    .@{modal-cls}-content {
+      .transform(translateY(-200%));
+      .transition(@duration: 0.3s, @timing: linear);
+      opacity: 0;
+    }
+    &.@{modal-cls}-show .@{modal-cls}-content {
+      .transform(translateY(0));
+      border-radius: 0 0 3px 3px;
+      opacity: 1;
+    }
+  }
+
+  &[@{modal-effect-att}='8'] {
+    perspective: 1300px;
+    .@{modal-cls}-content {
+      transform-style: preserve-3d;
+      .transform(rotateY(-70deg));
+      .transition(@duration: 0.3s, @timing: linear);
+      opacity: 0;
+    }
+    &.@{modal-cls}-show .@{modal-cls}-content {
+      .transform(rotateY(0deg));
+      opacity: 1;
+    }
+  }
+
+  &[@{modal-effect-att}='9'] {
+    perspective: 1300px;
+    .@{modal-cls}-content {
+      transform-style: preserve-3d;
+      .transform(rotateX(-70deg));
+      .transition(@duration: 0.3s, @timing: linear);
+      opacity: 0;
+    }
+    &.@{modal-cls}-show .@{modal-cls}-content {
+      .transform(rotateX(0deg));
+      opacity: 1;
+    }
+  }
+
+  &[@{modal-effect-att}='10'] {
+    perspective: 1300px;
+    .@{modal-cls}-content {
+      transform-style: preserve-3d;
+      .transform(rotateX(-60deg));
+      transform-origin: 50% 0;
+      .transition(@duration: 0.3s, @timing: linear);
+      opacity: 0;
+    }
+    &.@{modal-cls}-show .@{modal-cls}-content {
+      .transform(rotateX(0deg));
+      opacity: 1;
+    }
+  }
+
+  &[@{modal-effect-att}='11'] {
+    .@{modal-cls}-content {
+      .transform(scale(2));
+      .transition(@duration: 0.3s, @timing: linear);
+      opacity: 0;
+    }
+    &.@{modal-cls}-show .@{modal-cls}-content {
+      .transform(scale(1));
+      opacity: 1;
+    }
+  }
+
+  &[@{modal-effect-att}='12'] {
+    .@{modal-cls}-content {
+      background: transparent;
+      .transform(scale(0.8));
+      .transition(@duration: 0.3s, @timing: linear);
+      opacity: 0;
+    }
+    &.@{modal-cls}-show .@{modal-cls}-content {
+      .transform(scale(1));
+      opacity: 1;
+    }
+    & ~ .@{modal-cls}-backdrop {
+      background: @modal-color;
+    }
+  }
+
+  &[@{modal-effect-att}='13'] {
+    perspective: 1300px;
+    .@{modal-cls}-content {
+      transform-style: preserve-3d;
+      .transform(translateZ(-3000px) rotateY(90deg));
+      opacity: 0;
+    }
+    &.@{modal-cls}-show .@{modal-cls}-content {
+      animation: slit .7s forwards ease-out;
+    }
+  }
+
+  &[@{modal-effect-att}='14'] {
+    perspective: 1300px;
+    .@{modal-cls}-content {
+      transform-style: preserve-3d;
+      .transform(translateY(100%) rotateX(90deg));
+      transform-origin: 0 100%;
+      .transition(@duration: 0.3s, @timing: ease-out);
+      opacity: 0;
+    }
+    &.@{modal-cls}-show .@{modal-cls}-content {
+      .transform(translateY(0) rotateX(0deg));
+      opacity: 1;
+    }
+  }
+
+  &[@{modal-effect-att}='15'] {
+    perspective: 1300px;
+    .@{modal-cls}-content {
+      transform-style: preserve-3d;
+      .transform(translateZ(100px) translateX(-30%) rotateY(90deg));
+      transform-origin: 0 100%;
+      .transition(@duration: 0.3s, @timing: linear);
+      opacity: 0;
+    }
+    &.@{modal-cls}-show .@{modal-cls}-content {
+      .transform(translateZ(0) translateX(0) rotateY(0deg));
+      opacity: 1;
+    }
+  }
+
+  &[@{modal-effect-att}='16'] {
+    .@{modal-cls}-content {
+      .transform(translateY(-5%));
+      .transition(@duration: 0.3s, @timing: linear);
+      opacity: 0;
+    }
+    &.@{modal-cls}-show {
+      & ~ .@{modal-cls}-outside-container {
+        filter: blur(3px);
+        .transition(@duration: 0.3s, @timing: linear);
+      }
+      .@{modal-cls}-content {
+        .transform(translateY(0));
+        opacity: 1;
+      }
+    }
+    & ~ .@{modal-cls}-backdrop {
+      background: fade(@modal-color, 50%);
+    }
+  }
+
+  &[@{modal-effect-att}='17'] {
+    .@{modal-cls}-content {
+      .transform(translateY(200%));
+      opacity: 0;
+    }
+    &.@{modal-cls}-show {
+      & ~ .@{modal-cls}-outside-container {
+        height: 100%;
+        overflow: hidden;
+        background: @body-background;
+        transition: transform 0.3s;
+      }
+      .@{modal-cls}-content {
+        .transform(translateY(0));
+        .transition(@duration: 0.3s, @timing: linear, @delay: 0.2s);
+        opacity: 1;
+      }
+      & ~ .@{modal-cls}-outside-container, & ~ .@{modal-cls}-backdrop {
+        .transform(rotateX(-2deg));
+        transform-origin: 50% 0;
+        transform-style: preserve-3d;
+      }
+    }
+  }
+
+  &[@{modal-effect-att}='18'] {
+    .@{modal-cls}-content {
+      .transform(translateX(200%));
+      opacity: 0;
+    }
+    &.@{modal-cls}-show {
+      & ~ .@{modal-cls}-outside-container {
+        height: 100%;
+        overflow: hidden;
+        background: @body-background;
+      }
+      .@{modal-cls}-content {
+        .transform(translateX(0));
+        .transition(@duration: 0.5s, @timing: linear, @delay: 0.1s);
+        opacity: 1;
+      }
+      & ~ .@{modal-cls}-outside-container, & ~ .@{modal-cls}-backdrop {
+        animation: rotateRightSideFirst 0.5s forwards ease-in;
+        transform-origin: 0 50%;
+        transform-style: preserve-3d;
+      }
+      & ~ .@{modal-cls}-backdrop {
+        background: fade(@modal-color, 80%);
+        .transition(@duration: 0.5s, @timing: linear);
+      }
+    }
+  }
+
+  &[@{modal-effect-att}='19'] {
+    .@{modal-cls}-content {
+      .transform(translateY(-200%));
+      opacity: 0;
+    }
+    &.@{modal-cls}-show {
+      & ~ .@{modal-cls}-outside-container {
+        height: 100%;
+        overflow: hidden;
+        background: @body-background;
+      }
+      .@{modal-cls}-content {
+        .transform(translateY(0));
+        .transition(@duration: 0.5s, @timing: linear, @delay: 0.1s);
+        opacity: 1;
+      }
+      & ~ .@{modal-cls}-outside-container, & ~ .@{modal-cls}-backdrop {
+        animation: OpenTop 0.5s forwards ease-in;
+        transform-origin: 50% 100%;
+        transform-style: preserve-3d;
+      }
+      & ~ .@{modal-cls}-backdrop {
+        .transition(@duration: 0.5s, @timing: linear);
+      }
+    }
+  }
+}
+
+.@{modal-cls}-backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  z-index: @index-modal-backdrop;
+  opacity: 0;
+  .transition;
+}

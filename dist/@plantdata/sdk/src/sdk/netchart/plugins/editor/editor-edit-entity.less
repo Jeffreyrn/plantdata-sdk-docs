@@ -1,0 +1,62 @@
+@import "../../../../define/index";
+
+.pdvis-namespace {
+  &.pdsdk-editor-edit-entity-dialog {
+    .tag {
+      margin-left: 80px;
+      .pdui-tag {
+        margin: 4px 8px 4px 0;
+      }
+    }
+    .pdvis-edit-item {
+      margin: 0 0 8px 0;
+      //&:nth-child(1), &:nth-child(2){
+      //  display: inline-block;
+      //  width: 50%;
+      //  .pdui-input{
+      //    width: calc(~ "100% - 80px");
+      //  }
+      //}
+      //&:nth-child(3), &:nth-child(4) {
+      //  margin-bottom: -8px;
+      //  .pdvis-tag-editor-editor{
+      //    display: inline-block;
+      //    line-height: 30px;
+      //  }
+      //}
+      //&:nth-child(5){
+      //  line-height: 11px;
+      //}
+      textarea {
+        display: block;
+      }
+      .pdsdk-tag-prompt {
+        width: calc(~"100% - 80px");
+        float: left;
+      }
+      .pdsdk-editor-edit-entity-pars-prompt, .pdsdk-editor-edit-entity-sons-prompt {
+        .pdsdk-tag-prompt-editor {
+          .pdsdk-tag-prompt-input {
+            width: 200px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .pdvis-namespace {
+    &.pdsdk-editor-instance-edit-attr-dialog {
+      .pdui-modal-content{
+        .pdui-modal-body{
+          .pdvis-edit-item.pdvis-edit-item-single {
+            input {
+              width: calc(~"100% - 70px");
+            }
+          }
+        }
+      }
+    }
+  }
+}

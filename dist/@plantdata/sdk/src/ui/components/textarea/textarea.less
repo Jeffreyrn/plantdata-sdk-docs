@@ -1,0 +1,35 @@
+@import "../../../define/index";
+@import "mixins";
+
+.@{textarea-cls} {
+  border: 1px solid @color-font-02;
+  outline: 0 !important;
+  color: @color-font-04;
+  background: @color-inverse;
+  width: @textarea-width;
+  .border-radius;
+  .transition;
+
+  &:active, &.active, &:hover , &:focus {
+    border-color: @color-primary;
+  }
+  .border-radius;
+  .placeholder;
+  .textarea-md;
+
+  &&-xs {
+    .textarea-xs;
+  }
+  &&-sm {
+    .textarea-sm;
+  }
+  &&-md {
+    .textarea-md;
+  }
+  &&-lg {
+    .textarea-lg;
+  }
+  &[disabled], &.disabled {
+    .disabled;
+  }
+}

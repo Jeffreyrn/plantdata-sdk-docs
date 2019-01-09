@@ -1,0 +1,59 @@
+@import "../../../define/index";
+
+@checkbox-cls: ~"@{css-prefix}checkbox";
+
+.checkbox(@size: 14px) {
+  @wh-icon: @size + 4px;
+  @wh-icon-num: unit(@wh-icon);
+  @item-height: @size * @line-height;
+  line-height: @item-height;
+  height: @item-height;
+  font-size: @size;
+  input[type=checkbox] {
+    & + * {
+      padding-left: @wh-icon + 4px;
+      line-height: @item-height;
+      background: no-repeat 0 (@item-height - @wh-icon) / 2;
+      .icon-check-box-outline-blank(@color-font-03, @wh-icon-num);
+      min-height: @item-height;
+    }
+    &:checked + * {
+      .icon-check-box(@color-primary, @wh-icon-num);
+    }
+    &[disabled] {
+      & + * {
+        .icon-check-box-outline-blank(@color-font-02, @wh-icon-num);
+      }
+      &:checked + * {
+        .icon-check-box(@color-font-02, @wh-icon-num);
+      }
+    }
+  }
+  &:hover input + * {
+    .icon-check-box-outline-blank(@color-primary, @wh-icon-num);
+  }
+}
+
+.checkbox-xs() {
+  height: 19px;
+  line-height: 24px;
+  font-size: 12px;
+}
+
+.checkbox-sm() {
+  height: 27px;
+  line-height: 32px;
+  font-size: 14px;
+}
+
+.checkbox-md() {
+  height: 35px;
+  line-height: 40px;
+  font-size: 14px;
+}
+
+.checkbox-lg() {
+  height: 43px;
+  line-height: 48px;
+  font-size: 18px;
+}

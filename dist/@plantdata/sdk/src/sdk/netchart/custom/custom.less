@@ -1,0 +1,68 @@
+@import "../../../define/index";
+
+.pdvis-namespace {
+  &.pdsdk-custom {
+    .pd-panel-box {
+      .pdvis-chart-filter-foot {
+        display: none;
+      }
+    }
+    .pdvis-panels-tabs[data-tab-num="1"] {
+      display: none;
+      & ~ .pdvis-panels-pages {
+        height: 100%;
+      }
+    }
+    .pdvis-chart-filter-panel {
+      [data-path="distance"] .pdvis-cr-box li {
+        min-width: 33%;
+      }
+    }
+    .pdsdk-infobox-head {
+      .pdsdk-infobox-img {
+        right: 10px;
+        top: 10px;
+        & + .pdsdk-infobox-info {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+  .pdsdk-prompt-multi.pdvis-prompt-static {
+    position: relative;
+    .pdsdk-prompt {
+      width: 202px !important;
+      position: relative !important;
+    }
+    .pdsdk-prompt-list {
+      position: relative;
+      margin-top: 8px;
+      width: 300px;
+      top: 0;
+    }
+    .pdsdk-prompt-preview {
+      left: 210px;
+      top: -48px;
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) and (max-width: 1920px) {
+  .pdvis-namespace.pdvis {
+    .pd-panel-box {
+      .pd-panel-box-body {
+        max-height: 560px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1921px) and (max-width: 2560px) {
+  .pdvis-namespace.pdvis {
+    .pd-panel-box {
+      .pd-panel-box-body {
+        max-height: 720px;
+      }
+    }
+  }
+}
