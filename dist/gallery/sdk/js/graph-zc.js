@@ -211,12 +211,12 @@ function getStyleFunction(level) {
 }
 
 var settings = {
-    kgName: 'sdkeditor_a5e939tqnm1qzeik',
+    kgName: 'default_graph_bak',
     selector: '#container',
     ajaxSettings: {
         baseUrl: 'https://test.plantdata.ai/plantdata-sdk/api/sdk/',
         headers: {
-            APK: '5880bd0ba4c6471aba5b4eb65a37c32e'
+            APK: '58ff49bce6eb4d3c9b26a58cf592c5ab'
         }
     },
     loaderSettings: {
