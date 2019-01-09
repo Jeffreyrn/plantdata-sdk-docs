@@ -3,7 +3,7 @@ const schema = new PdSDKSchema({
     ajaxSettings: {
         baseUrl: 'https://test.plantdata.ai/plantdata-sdk/api/sdk/',
         headers: {
-            APK: 'c01d0d82d4704924b0f75e298b6e0efc'
+            APK: '58ff49bce6eb4d3c9b26a58cf592c5ab'
         },
         success: (data) => {
             console.log(data)
