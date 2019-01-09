@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var PdContainerUtils=function(){function e(){}return e.isLargeScreen=function(){return window.screen.height>640&&window.screen.width>640},e}();exports.PdContainerUtils=PdContainerUtils;

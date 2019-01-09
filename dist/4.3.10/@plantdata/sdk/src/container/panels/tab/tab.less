@@ -1,0 +1,26 @@
+@import "../../../define/index";
+
+.pdvis-namespace.pdvis {
+  .pdvis-panels {
+    &.pdvis-panels-fixed {
+      .pdvis-panels-tabs[data-tab-num="1"] {
+        height: 0;
+        & ~ .pdvis-panels-pages {
+          height: 100%;
+        }
+      }
+    }
+    .pdvis-panels-pages {
+      position: relative;
+      & > * {
+        display: none;
+        height: 100%;
+        overflow: auto;
+        .scroll();
+        &.active {
+          display: block;
+        }
+      }
+    }
+  }
+}

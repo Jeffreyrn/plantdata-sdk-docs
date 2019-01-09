@@ -1,0 +1,23 @@
+.pdui-card {
+    margin: 16px;
+}
+
+.pdui-card-head, .pdui-card-body {
+    padding: 16px;
+}
+
+.pdui-layout-row > * > div {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.pdui-layout-row *:nth-child(even) > div {
+    background: rgba(0, 179, 138, 1);
+}
+
+.pdui-layout-row *:nth-child(odd) > div {
+    background: rgba(0, 179, 138, 0.5);
+}

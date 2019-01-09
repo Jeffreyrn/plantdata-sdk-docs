@@ -1,0 +1,273 @@
+@import "../../../define/index";
+@import "mixins";
+
+.@{tab-cls}-nav {
+  @size: 48px;
+  flex: 0 0 auto;
+  height: @size;
+  border-bottom: @divider-default;
+  border-width: 2px;
+  .font-title;
+  .clearfix;
+  & > li {
+    float: left;
+    .transition;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    a {
+      height: @size - 2px;
+      line-height: @size - 2px;
+      color: @color-font-05;
+      padding: 0 24px;
+      display: block;
+      .transition;
+      pointer-events: none;
+    }
+    &:not(.disabled):hover a {
+      color: @color-primary;
+    }
+    &.active, &.@{tab-cls}-nav-decoration {
+      border-color: @color-primary;
+      a {
+        color: @color-primary;
+      }
+    }
+    &.disabled {
+      .disabled;
+      a {
+        cursor: not-allowed;
+      }
+    }
+  }
+  &.@{tab-cls}-nav-primary {
+    & > li {
+      background: no-repeat center 34px;
+      padding: 15px 0;
+      &.active, &.@{tab-cls}-nav-decoration {
+        .icon-arrow-drop-up(@color-primary, 20);
+      }
+      a {
+        border-left: @divider-default;
+        line-height: 1em;
+        height: 16px;
+      }
+      &:first-child a {
+        border: 0;
+      }
+    }
+  }
+  &.@{tab-cls}-nav-secondary {
+    @size: 40px;
+    height: @size;
+    .font-body-1;
+    & > li {
+      padding: 0;
+      a {
+        height: @size - 2px;
+        line-height: @size - 2px;
+      }
+    }
+  }
+}
+
+.@{tab-cls}-page {
+  position: relative;
+  flex: 1;
+  & > .@{tab-cls}-page-item {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    opacity: 0;
+    position: absolute;
+    .transition;
+    z-index: 1;
+    .scroll;
+    &.active {
+      position: relative;
+      z-index: 2;
+      opacity: 1;
+      display: block;
+    }
+  }
+}
+
+.@{tab-cls} {
+  display: flex;
+  flex-direction: column;
+  &.@{tab-cls}-left, &.@{tab-cls}-right {
+    .clearfix;
+    display: block;
+    & > .@{tab-cls}-nav-container {
+      padding: 20px 0;
+      height: 100%;
+      .@{tab-cls}-nav {
+        border-bottom: 0;
+        height: auto;
+        & > li {
+          float: none;
+          border-bottom-width: 0;
+          margin-bottom: 0;
+          a {
+            border: 0;
+            text-align: center;
+          }
+          &.active, &.@{tab-cls}-nav-decoration {
+            border-color: @color-primary;
+            background-image: none;
+          }
+        }
+      }
+      .@{tab-cls}-nav-control {
+        width: 100%;
+        height: 20px;
+        border: 0;
+        &.@{tab-cls}-nav-control-prev {
+          .icon-keyboard-arrow-down(@color-font-03, 20);
+          transform: rotate(180deg);
+        }
+        &.@{tab-cls}-nav-control-next {
+          top: auto;
+          bottom: 0;
+          .icon-keyboard-arrow-down(@color-font-03, 20);
+        }
+        &.disabled {
+          .icon-keyboard-arrow-down(@color-font-02, 20);
+        }
+        &:not(.disabled):hover {
+          .icon-keyboard-arrow-down(@color-font-01, 20);
+        }
+      }
+      .@{tab-cls}-nav-wrap {
+        height: 100%;
+      }
+      &.@{tab-cls}-nav-show-all {
+        padding: 0;
+        .@{tab-cls}-nav-wrap {
+          & > ul {
+            height: 100% !important;
+            width: auto !important;
+          }
+        }
+      }
+      .@{tab-cls}-nav-decoration {
+        height: 0;
+        width: calc(~"100% + 1px");
+      }
+    }
+    & > .@{tab-cls}-page {
+      height: 100%;
+      .scroll;
+    }
+  }
+  &.@{tab-cls}-left {
+    & > .@{tab-cls}-page {
+      border-left: @divider-default;
+    }
+    & > .@{tab-cls}-nav-container {
+      float: left;
+      border-right: @divider-default;
+      margin-right: -1px;
+      .@{tab-cls}-nav {
+        float: left;
+        border-right: @divider-default;
+        margin-right: -1px;
+        li {
+          margin-right: -1px;
+          border-right: 2px solid transparent;
+        }
+      }
+    }
+  }
+  &.@{tab-cls}-right {
+    & > .@{tab-cls}-page {
+      border-right: @divider-default;
+    }
+    & > .@{tab-cls}-nav-container {
+      float: right;
+      border-left: @divider-default;
+      margin-left: -1px;
+      .@{tab-cls}-nav {
+        float: right;
+        border-left: @divider-default;
+        margin-left: -1px;
+        li {
+          margin-left: -1px;
+          border-left: 2px solid transparent;
+        }
+      }
+    }
+  }
+}
+
+.@{tab-cls}-nav-container {
+  position: relative;
+  padding: 0 20px;
+  .@{tab-cls}-nav-control {
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background: no-repeat center center;
+    border-width: 2px !important;
+    cursor: pointer;
+    &.@{tab-cls}-nav-control-prev {
+      left: 0;
+      top: 0;
+      .icon-keyboard-arrow-right(@color-font-03, 20);
+      transform: rotate(180deg);
+      border-top: @divider-default;
+    }
+    &.@{tab-cls}-nav-control-next {
+      right: 0;
+      top: 0;
+      border-bottom: @divider-default;
+      .icon-keyboard-arrow-right(@color-font-03, 20);
+    }
+    &.disabled {
+      .icon-keyboard-arrow-right(@color-font-02, 20);
+    }
+    &:not(.disabled):hover {
+      .icon-keyboard-arrow-right(@color-font-01, 20);
+    }
+  }
+  .@{tab-cls}-nav-decoration {
+    height: calc(~"100% + 2px");
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 !important;
+    cursor: auto !important;
+    list-style: none;
+    .transition;
+  }
+  .@{tab-cls}-nav-wrap {
+    overflow: hidden;
+    position: relative;
+    & > ul {
+      .transition;
+      position: relative;
+      margin-left: 0;
+      margin-top: 0;
+      & > li:not(.@{tab-cls}-nav-decoration) {
+        border: 0 !important;
+        background: none !important;
+      }
+    }
+  }
+  &.@{tab-cls}-nav-show-all {
+    padding: 0;
+    .@{tab-cls}-nav-control {
+      display: none;
+    }
+    .@{tab-cls}-nav-wrap {
+      & > ul {
+        width: 100% !important;
+        margin-top: 0 !important;
+        margin-left: 0 !important;
+      }
+    }
+  }
+}

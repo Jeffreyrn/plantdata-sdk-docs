@@ -1,0 +1,1 @@
+"use strict";function default_1(e,t){return void 0===e&&(e=24),void 0===t&&(t={}),t.viewBox="0 0 24 24",t.width=e,t.height=e,utils_1.PdIconUtils.createSVGStr('<circle cx="12" cy="19" r="2"></circle><path d="M10 3h4v12h-4z"></path>',t)}Object.defineProperty(exports,"__esModule",{value:!0});var utils_1=require("./utils");exports["default"]=default_1;

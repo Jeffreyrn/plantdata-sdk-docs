@@ -1,0 +1,75 @@
+@import "../../../define/index";
+@import "mixins";
+@import "../dropdown/mixins";
+
+.@{select-cls} {
+  position: relative;
+  display: inline-block;
+  width: @input-width;
+  .select-dropdown-md();
+  & > span {
+    display: block;
+    width: 100%;
+    border: @divider-default;
+    color: @color-font-05;
+    cursor: pointer;
+    background: @color-general-ac05 no-repeat center right;
+    .border-radius;
+    .icon-arrow-drop-down(@color-font-05);
+    padding: 0 16px 0 8px;
+    .transition;
+    .line-hidden;
+    &:empty {
+      content: ' ';
+    }
+  }
+
+  &:not(.disabled) {
+    & > span:hover {
+      border-color: @color-primary;
+      .icon-arrow-drop-down(@color-primary);
+    }
+  }
+
+  &.disabled {
+    & > span {
+      .disabled
+    }
+  }
+
+  .@{select-dropdown-cls} {
+    width: 100%;
+  }
+
+  &&-xs {
+    .select-dropdown-xs;
+  }
+  &&-sm {
+    .select-dropdown-sm;
+  }
+  &&-md {
+    .select-dropdown-md;
+  }
+  &&-lg {
+    .select-dropdown-lg;
+  }
+}
+
+.@{select-dropdown-cls} {
+  &&-xs > li {
+    font-size: 12px;
+    line-height: 24px;
+  }
+  &&-sm > li {
+    font-size: 14px;
+    line-height: 32px;
+  }
+  &&-md > li {
+    font-size: 14px;
+    line-height: 40px;
+  }
+  &&-lg > li {
+    font-size: 18px;
+    line-height: 48px;
+  }
+}

@@ -1,0 +1,120 @@
+@import "../../../define/index";
+
+.pdvis-slider {
+  width: 100%;
+  padding: 0 8px;
+  display: block;
+  &.is-vertical {
+    height: 100%;
+    width: 38px;
+    padding: 8px 0;
+    .pdvis-slider-runway {
+      width: 6px;
+      height: 100%;
+      margin: 0 16px;
+      .pdvis-slider-bar {
+        width: 100%;
+        height: auto;
+        bottom: 0;
+        border-radius: 0 0 3px 3px;
+        cursor: n-resize;
+      }
+      .pdvis-slider-button-wrapper {
+        top: auto;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        bottom: 0;
+        cursor: n-resize;
+      }
+    }
+  }
+  &.pdvis-show-label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    .pdvis-slider-label {
+      display: inline;
+      flex: 0 0 auto;
+      margin: 8px 8px 0 0;
+      &:last-child {
+        margin: 8px 0 0 8px;
+      }
+    }
+  }
+  .pdvis-slider-label {
+    display: none;
+  }
+  .pdvis-slider-runway {
+    width: 100%;
+    flex: 1;
+    height: 6px;
+    margin: 16px 0;
+    background-color: #e4e7ed;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+    user-select: none;
+    .pdvis-slider-bar {
+      height: 100%;
+      background-color: @color-primary;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      position: absolute;
+      width: 0;
+      left: 0;
+      cursor: e-resize;
+    }
+    .pdvis-slider-button-wrapper {
+      height: 36px;
+      width: 36px;
+      position: absolute;
+      z-index: 1001;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: transparent;
+      text-align: center;
+      line-height: normal;
+      left: 0;
+      cursor: e-resize;
+      &::after {
+        content: '';
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .pdvis-slider-button {
+        width: 16px;
+        height: 16px;
+        border: 2px solid @color-primary;
+        background-color: white;
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        .transition;
+        &:hover {
+          transform: translate(-50%, -50%) scale(1.2);
+        }
+      }
+    }
+  }
+  &.disabled {
+    .pdvis-slider-runway {
+      cursor: default;
+      .pdvis-slider-bar {
+        background-color: #c0c4cc;
+      }
+      .pdvis-slider-button-wrapper {
+        cursor: not-allowed;
+        .pdvis-slider-button {
+          border-color: #c0c4cc;
+          &:hover {
+            transform: translate(-50%, -50%) scale(1);
+          }
+        }
+      }
+    }
+  }
+}

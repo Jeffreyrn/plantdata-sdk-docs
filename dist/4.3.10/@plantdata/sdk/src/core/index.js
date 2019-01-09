@@ -1,0 +1,1 @@
+"use strict";function __export(e){for(var r in e)exports.hasOwnProperty(r)||(exports[r]=e[r])}Object.defineProperty(exports,"__esModule",{value:!0});var version=require("./version.json");exports.version=version,__export(require("./event")),__export(require("./component")),__export(require("./elecreator"));

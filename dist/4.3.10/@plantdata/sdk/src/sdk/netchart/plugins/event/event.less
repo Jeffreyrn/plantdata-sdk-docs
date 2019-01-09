@@ -1,0 +1,117 @@
+@import "../../../../define/index";
+
+.pdvis-namespace {
+  .pdsdk-event {
+    height: 100%;
+  }
+  .pdsdk-event-title {
+    height: 100%;
+    padding-top: 3px;
+    svg {
+      line-height: 30px;
+      margin-right: 12px;
+      float: left;
+      fill: @color-primary;
+    }
+    > div {
+      text-align: left;
+      color: @color-font-05;
+      font-size: 14px;
+      > div {
+        line-height: 15px;
+        height: 15px;
+        overflow: hidden;
+      }
+      span {
+        color: @color-primary;
+      }
+    }
+  }
+  .pdsdk-event-content {
+    height: 100%;
+    overflow: auto;
+    padding: 8px 0;
+    .scroll();
+    .pdsdk-event-content-line {
+      position: absolute;
+      top: 0;
+      left: 61px;
+      bottom: 0;
+      width: 1px;
+      background: @color-general-ac04;
+    }
+    .pdsdk-event-year-item-container {
+      .pdsdk-event-item {
+        padding-bottom: 16px;
+        font-size: 12px;
+        .clearfix;
+        .pdsdk-event-time {
+          width: 48px;
+          margin-right: 8px;
+          float: left;
+          text-align: right;
+          padding-top: 3px;
+          .pdsdk-event-year {
+            color: @color-primary;
+            font-weight: bold;
+            font-size: 14px;
+            display: none;
+          }
+          .pdsdk-event-day {
+            color: @color-font-04;
+          }
+        }
+        &:first-child {
+          .pdsdk-event-year {
+            display: block;
+          }
+        }
+        &:hover {
+          background: @color-general-ac06;
+        }
+        .pdsdk-event-pointer {
+          position: relative;
+          z-index: 1;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: fade(@color-primary, 30%);
+          padding: 3px;
+          float: left;
+          margin-top: 8px;
+          .pdsdk-event-pointer {
+            width: 6px;
+            height: 6px;
+            margin: 0;
+            background: fade(@color-primary, 60%);
+          }
+        }
+        table {
+          color: @color-font-05;
+          tr:first-child {
+            td {
+              &:first-child {
+                width: 72px;
+              }
+            }
+          }
+          td {
+            padding: 2px 4px;
+            div {
+              display: inline-block;
+              max-width: 72px;
+              vertical-align: -4px;
+              .line-hidden();
+            }
+          }
+          .pdsdk-event-detail-key {
+            color: @color-font-03;
+          }
+          .pdsdk-event-detail-value {
+            color: @color-font-05;
+          }
+        }
+      }
+    }
+  }
+}

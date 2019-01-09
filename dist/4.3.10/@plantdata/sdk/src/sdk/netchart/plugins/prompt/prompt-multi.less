@@ -1,0 +1,41 @@
+@import "../../../../define/index";
+@import "prompt";
+
+.pdvis-namespace {
+  .pdsdk-prompt-multi {
+    position: absolute;
+    .pdsdk-prompt {
+      width: 230px;
+    }
+    .pdsdk-prompt-list {
+      position: absolute;
+      top: 56px;
+      left: 0;
+      width: 230px;
+      ul.pdsdk-node-list {
+        width: 100%;
+        background: white;
+        .border-radius();
+        .box-shadow();
+        .transition();
+        max-height: 200px;
+        .scroll();
+        li {
+          border-top: 0;
+        }
+        //&:empty {
+        //  & + .pdsdk-prompt-preview {
+        //    display: none;
+        //  }
+        //}
+      }
+    }
+    .pdsdk-prompt-preview {
+      position: absolute;
+      top: -56px;
+      left: 246px;
+      width: 90px;
+      .box-shadow();
+    }
+  }
+}

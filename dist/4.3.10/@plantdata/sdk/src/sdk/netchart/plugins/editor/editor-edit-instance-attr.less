@@ -1,0 +1,79 @@
+@import "../../../../define/index";
+
+.pdvis-namespace {
+  &.pdsdk-editor-instance-edit-attr-dialog {
+    .pdvis-edit-item.pdvis-edit-item-single>label[title]+input{
+      width: calc(~"100% - 150px");
+    }
+    .pdvis-edit-item.pdvis-edit-item-single {
+      &.pdvis-edit-item-half{
+        .pdui-input{
+          width: 195px;
+        }
+      }
+      label {
+        width: 80px;
+        span {
+          max-width: calc(~"100% - 5px");
+          display: block;
+          float: left;
+        }
+      }
+      .pdsdk-editor-instance-edit-attr-item-name{
+        width: 75px;
+      }
+      .pdsdk-editor-instance-edit-attr-item-value{
+        width: calc(~"100% - 150px");
+      }
+      .pdsdk-editor-instance-edit-attr-item-delete{
+        fill: @color-font-03;
+        cursor: pointer;
+        vertical-align: middle;
+        &:hover{
+          fill: @color-error;
+        }
+      }
+    }
+    .pdsdk-editor-instance-edit-attr-add-self-attr-btn{
+      margin-left: 90px;
+      color: @color-primary;
+      cursor: pointer;
+    }
+    .pdvis-edit-item-postfix{
+      width: 56px;
+      text-align: left;
+      margin-left: 14px;
+      display: block;
+      max-width: 56px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      float: right;
+    }
+    .pdsdk-editor-instance-edit-attr-no-data{
+      width: 100%;
+      height: 200px;
+      background: rgba(234, 237, 242, 0.6);
+      position: relative;
+      .pdsdk-editor-instance-edit-attr-no-data-content{
+        color: rgb(170, 170, 170);
+        fill: rgb(170, 170, 170);
+        width: 175px;
+        text-align: center;
+        height: 68px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        .pdsdk-editor-instance-edit-attr-no-data-add {
+          cursor: pointer;
+          span{
+            color: @color-primary;
+          }
+        }
+      }
+    }
+  }
+}

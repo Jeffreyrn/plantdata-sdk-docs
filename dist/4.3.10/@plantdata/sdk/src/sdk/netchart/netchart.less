@@ -1,0 +1,208 @@
+@import "../../define/index";
+
+.pdvis {
+  .@{ZNCPrefix}Menu {
+    background: @color-light;
+    border-radius: 4px;
+  }
+  .@{ZNCPrefix}info-left, .@{ZNCPrefix}info-center, .@{ZNCPrefix}info-right {
+    background: @color-light;
+    border-radius: 4px;
+    .pdvis-link-info {
+      & > li {
+        padding: 0 16px;
+      }
+      th {
+        background: @color-primary-04;
+        border-top: @divider-default;
+        line-height: 22px;
+        padding: 4px 10px !important;
+        &:first-child {
+          border-left: @divider-default;
+        }
+        &:last-child {
+          border-right: @divider-default;
+        }
+      }
+      tbody {
+        td {
+          line-height: 22px;
+          padding: 4px 10px !important;
+          &:first-child {
+            border-left: @divider-default;
+          }
+          &:last-child {
+            border-right: @divider-default;
+          }
+          div.pdvis-link-info-value {
+            max-width: 180px;
+            white-space: pre-wrap;
+          }
+        }
+        tr:last-child {
+          td {
+            border-bottom: @divider-default;
+          }
+        }
+      }
+    }
+  }
+  .pdvis-netchart-container {
+    .pdui-ajax-loading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      text-align: center;
+      font-size: 48px;
+      padding: 50px 0;
+      .middle();
+    }
+  }
+  .pdvis-link-info {
+    padding: 16px 0;
+    li {
+      margin-top: 16px;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    table {
+      th, td {
+        text-align: left;
+        padding: 4px 8px;
+        &:first-child {
+          padding-left: 24px;
+        }
+        &:last-child {
+          padding-right: 24px;
+        }
+      }
+    }
+  }
+  .pdvis-legend {
+    &.pdui-fab {
+      bottom: 10px;
+      overflow: visible;
+      width: auto;
+      .pdui-fab-item > * {
+        margin: 0;
+        line-height: 14px;
+      }
+    }
+    .pdvis-legend-item {
+      cursor: pointer;
+      &.vague:not(.active), &.inactive {
+        opacity: 0.5;
+        &.pdvis-node-legend-item i {
+          background: @color-general-ac03 !important;
+          border-color: @color-general-ac03 !important;
+        }
+        &.pdvis-link-legend-item i {
+          border-color: @color-general-ac03 !important;
+        }
+      }
+      &.off i {
+        opacity: 0;
+      }
+    }
+    &.pdui-fab .pdui-fab-item {
+      &.off, &.inactive {
+        opacity: 0.5;
+        background: @color-general-ac03 !important;
+      }
+    }
+  }
+  &[data-infobox-position="center"] {
+    .@{ZNCPrefix}Menu, & > .pdsdk-infobox {
+      left: 50% !important;
+      top: 50% !important;
+      transform: translate(-50%, -50%);
+      max-height: 80%;
+      max-width: 80%;
+      overflow: auto;
+      .scroll;
+    }
+  }
+  & > .pdsdk-infobox {
+    position: absolute;
+    z-index: 2;
+    max-width: 80%;
+    max-height: 80%;
+    width: 400px;
+    background: @color-light;
+    .scroll;
+    .box-shadow;
+    & > .pdsdk-infobox-close {
+      position: absolute;
+      right: 24px;
+      top: 24px;
+      cursor: pointer;
+      svg {
+        fill: @color-font-03;
+      }
+      &:hover svg {
+        fill: @color-primary;
+      }
+    }
+    .pdsdk-infobox-status {
+      padding: 20px;
+      .pdsdk-status-error {
+        color: @color-error;
+      }
+      .pdsdk-status-loading {
+        color: @color-font-03;
+      }
+    }
+  }
+  .pdsdk-settings-panel {
+    background: white;
+    .box-shadow-1;
+    .pdsdk-panel-head {
+      padding: 8px 16px;
+      border-bottom: @divider-default;
+      .font-title;
+    }
+    .pdsdk-panel-body {
+      padding: 8px 16px;
+    }
+    .pdsdk-panel-foot {
+      border-top: @divider-default;
+      padding: 8px 16px;
+      text-align: right;
+    }
+  }
+  .pdsdk-infobox {
+    max-width: 100%;
+    .pdsdk-infobox-head {
+      min-width: 0;
+      padding: 8px;
+      .pdsdk-infobox-title {
+        margin-bottom: 0;
+        text-align: center;
+      }
+      .pdsdk-infobox-pars {
+        display: none;
+      }
+    }
+    .pdsdk-infobox-body {
+      padding: 8px;
+      .scroll();
+      .pdsdk-infobox-info-label {
+        width: 80px;
+        min-width: 80px;
+        max-width: 80px;
+        .line-hidden;
+      }
+      .pdsdk-infobox-info-detail {
+        word-break: break-all;
+      }
+    }
+  }
+  .pdvis-mixins-item {
+    .pdsdk-infobox-body {
+      height: 200px;
+    }
+  }
+}

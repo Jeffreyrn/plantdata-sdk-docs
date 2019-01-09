@@ -1,0 +1,334 @@
+@import "../../../../define/index";
+
+.pdvis-namespace {
+  &.pdsdk-advanced-prompt-dialog {
+    &.pdui-modal {
+      width: 820px;
+      max-width: 820px;
+      .pdui-modal-head {
+        border-bottom: @divider-default;
+        .pdui-modal-title {
+          text-align: center;
+        }
+      }
+      .pdui-modal-body {
+        padding: 0;
+        height: 454px;
+        .pdsdk-advanced-prompt-dialog-body-left {
+          float: left;
+          width: 328px;
+          border-right: @divider-default;
+          height: 100%;
+          .pdsdk-advanced-prompt-dialog-search {
+            margin: 0 12px;
+            padding: 16px 0;
+            border-bottom: 1px dashed #dcdfe6;
+            .pdsdk-advanced-prompt-concept-select {
+              display: block;
+              height: 32px;
+              float: left;
+              box-sizing: border-box;
+              border: 1px solid #dcdfe6;
+              border-radius: 3px 0 0 3px;
+              width: 80px;
+              &:hover {
+                border: 1px solid @color-primary;
+              }
+              &:focus {
+                outline: none;
+              }
+              .scroll;
+              option {
+                background-color: #f0f2f5;
+                border: none;
+                height: 30px;
+                &:hover {
+                  border-color: white;
+                  background-color: #f0f2f5;
+                }
+              }
+            }
+            .pdsdk-advanced-prompt-input {
+              width: 174px;
+              float: left;
+              box-sizing: border-box;
+              border-radius: 0 3px 3px 0;
+              border: @divider-default;
+            }
+            .pdui-btn {
+              width: 40px;
+              max-width: 40px;
+              min-width: 40px;
+              padding: 0;
+              float: left;
+              line-height: 32px;
+              border-radius: 3px;
+              margin-left: 8px;
+              svg {
+                margin-top: 4px;
+                fill: #fff;
+              }
+            }
+          }
+          .pdsdk-advanced-prompt-dialog-filter {
+            padding: 12px 16px;
+            .pdsdk-advanced-prompt-dialog-filter-title {
+              font-size: 16px;
+              font-weight: bold;
+              margin-bottom: 12px;
+            }
+            .pdsdk-advanced-prompt-dialog-filter-add-btn {
+              width: 100%;
+              display: block;
+              padding-left: 105px;
+              &:hover {
+                svg {
+                  fill: #fff;
+                }
+              }
+              svg {
+                transition: all .5s cubic-bezier(.25, .8, .25, 1) 0s;
+                display: block;
+                float: left;
+                fill: @color-primary;
+                margin-top: 2px;
+              }
+              span {
+                line-height: 30px;
+                display: block;
+                float: left;
+              }
+            }
+            .pdsdk-advanced-prompt-dialog-filter-list {
+              .pdsdk-advanced-prompt-dialog-filter-item {
+                .pdsdk-advanced-prompt-dialog-filter-item-select {
+                  float: left;
+                  width: 52px;
+                  height: 32px;
+                  display: block;
+                  span {
+                    background-color: #fff;
+                  }
+                }
+                &.pdsdk-advanced-prompt-dialog-filter-item-not-first {
+                  .pdsdk-advanced-prompt-dialog-filter-item-tab {
+                    width: calc(~"100% - 60px");
+                    float: left;
+                    margin-left: 8px;
+                    .advanced-prompt-item-value {
+                      width: 70px;
+                    }
+                  }
+                }
+                .pdsdk-advanced-prompt-dialog-filter-item-tab {
+                  margin-bottom: 16px;
+                  border-radius: 3px;
+                  border: 1px solid @color-primary;
+                  background: @color-primary-04;
+                  line-height: 30px;
+                  padding: 0 8px;
+                  height: 32px;
+                  div {
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                  }
+                  .advanced-prompt-item-title {
+                    font-size: 14px;
+                    color: @color-font-04;
+                    float: left;
+                    width: 70px;
+                  }
+                  .advanced-prompt-item-label {
+                    font-size: 12px;
+                    color: @color-font-03;
+                    float: left;
+                    width: 42px;
+                  }
+                  .advanced-prompt-item-value {
+                    font-size: 14px;
+                    color: @color-primary;
+                    float: left;
+                    width: 125px;
+                    .advanced-prompt-item-split {
+                      color: @color-font-03;
+                    }
+                  }
+                  .pdsdk-advanced-prompt-dialog-filter-item-close {
+                    float: right;
+                    margin-top: 5px;
+                    cursor: pointer;
+                    fill: @color-error;
+                  }
+                }
+              }
+            }
+            .pdsdk-advanced-prompt-dialog-filter-add-box {
+              background: @color-primary-04;
+              padding: 16px;
+              .pdsdk-advanced-prompt-dialog-filter-add-line {
+                &:first-of-type {
+                  margin-bottom: 8px;
+                }
+                .pdsdk-advanced-prompt-dialog-filter-add-label {
+                  float: left;
+                  width: 56px;
+                  line-height: 32px;
+                }
+                .pdui-select {
+                  span {
+                    background-color: #fff;
+                  }
+                }
+                .pdsdk-advanced-prompt-dialog-filter-add-attr-select {
+                  width: 123px;
+                  display: block;
+                  float: left;
+                  height: 32px;
+                }
+                .pdsdk-advanced-prompt-dialog-filter-add-operator-select {
+                  width: 80px;
+                  display: block;
+                  float: left;
+                  height: 32px;
+                  margin-left: 4px;
+                }
+                .pdsdk-advanced-prompt-dialog-filter-add-input {
+                  width: 207px;
+                }
+                .pdsdk-advanced-prompt-dialog-filter-add-input-lt, .pdsdk-advanced-prompt-dialog-filter-add-input-gt {
+                  width: 96px;
+                }
+                .pdsdk-advanced-prompt-dialog-filter-add-tag-prompt {
+                  width: calc(~"100% - 56px");
+                  display: block;
+                  float: left;
+                  .pdvis-tag-editor-editor, .pdsdk-tag-prompt-input {
+                    width: 100%;
+                  }
+                }
+                .pdui-btn {
+                  margin-top: 16px;
+                  margin-left: 16px;
+                  float: right;
+                }
+              }
+            }
+          }
+        }
+        .pdsdk-advanced-prompt-dialog-body-right {
+          float: right;
+          width: 468px;
+          margin-right: 12px;
+          .pdsdk-advanced-prompt-dialog-body-right-top {
+            .pdsdk-advanced-prompt-page-label {
+              float: left;
+              line-height: 32px;
+            }
+            .pdsdk-advanced-prompt-page {
+              float: right;
+              margin-right: 24px;
+              ul.pdui-pagination {
+                margin-top: 6px;
+                li.pdui-pagination-item {
+                  width: 21px;
+                  height: 21px;
+                }
+              }
+            }
+          }
+          .pdsdk-advanced-prompt-work-space {
+            overflow: auto;
+            max-height: 470px;
+            .scroll;
+            .pdsdk-advanced-prompt-content {
+              height: 393px;
+              .pdsdk-advanced-prompt-content-empty {
+                height: 393px;
+                border: 1px solid #ccc;
+                background: @color-general-ac05;
+                position: relative;
+                .pdsdk-advanced-prompt-empty-content {
+                  position: absolute;
+                  margin: auto;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  text-align: center;
+                  width: 200px;
+                  height: 100px;
+                  svg {
+                    fill: #bfc3cc;
+                  }
+                  span {
+                    display: block;
+                  }
+                }
+              }
+              .pdsdk-advanced-prompt-content-main {
+                height: 393px;
+                .pdui-table {
+                  width: 468px;
+                }
+                .pdui-table td, .pdui-table th {
+                  padding: 5px 4px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                }
+                thead {
+                  background: @color-general-ac05;
+                  tr {
+                    th {
+                      color: @color-font-05;
+                    }
+                  }
+                }
+                .pdsdk-advanced-prompt-name {
+                  max-width: 160px;
+                  color: @color-font-05;
+                }
+                .pdsdk-advanced-prompt-meaning-tag {
+                  max-width: 160px;
+                }
+                .pdsdk-advanced-prompt-table-operation {
+                  min-width: 80px;
+                  max-width: 80px;
+                }
+                .pdsdk-advanced-prompt-concept {
+                  min-width: 65px;
+                  max-width: 65px;
+                }
+                .pdsdk-advanced-prompt-normal {
+                  color: @color-font-03;
+                }
+                .pdsdk-advanced-prompt-remove-item {
+                  padding: 0 14px;
+                  background: white;
+                  border: 1px solid #dcdfe6;
+                  color: #ddd;
+                }
+              }
+            }
+          }
+        }
+      }
+      .pdui-modal-foot {
+        padding: 16px 24px;
+        border-top: @divider-default;
+        width: 100%;
+        .pdsdk-advanced-prompt-select-container {
+          float: left;
+          line-height: 32px;
+          width: calc(~"100% - 158px");
+          span, .pdsdk-advanced-prompt-select-box {
+            float: left;
+          }
+        }
+      }
+    }
+  }
+}
+
+

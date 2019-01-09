@@ -1,0 +1,62 @@
+@import "../../../../define/index";
+
+.pdvis-namespace {
+  .pdvis-mixins-panel {
+    .pdvis-mixins-item {
+      .pdvis-mixins-header {
+        height: 40px;
+        position: relative;
+        border-bottom: @divider-default;
+        overflow: hidden;
+        cursor: pointer;
+        .pdvis-mixins-title {
+          padding-right: 40px;
+          height: 40px;
+          line-height: 40px;
+          padding-left: 8px;
+          .line-hidden;
+          .pdvis-mixins-title-text {
+
+          }
+          .pdvis-mixins-title-icon {
+            vertical-align: -4px;
+            margin-right: 8px;
+          }
+        }
+        .pdvis-mixins-header-close {
+          height: 24px;
+          position: absolute;
+          right: 8px;
+          top: 8px;
+          z-index: 1;
+          fill: @color-font-03;
+          color: @color-font-03;
+          .transition;
+          &:hover {
+            fill: @color-primary;
+            color: @color-primary;
+          }
+        }
+        &:empty {
+          display: none;
+        }
+      }
+      .pdvis-mixins-content {
+        .transition;
+      }
+      &.close {
+        .pdvis-mixins-header-close {
+          transform: rotate(180deg);
+        }
+        .pdvis-mixins-content {
+          height: 0;
+          max-height: 0;
+          overflow: hidden;
+        }
+      }
+      &:not(:first-child) {
+        border-top: @divider-default;
+      }
+    }
+  }
+}

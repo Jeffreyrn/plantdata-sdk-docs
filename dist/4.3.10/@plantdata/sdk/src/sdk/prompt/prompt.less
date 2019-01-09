@@ -1,0 +1,22 @@
+@import "../../define/index";
+
+ul.pdsdk-search-prompt li{
+  height: 30px;
+  line-height: 30px;
+  .pdsdk-prompt-tip-type {
+    margin-right: 16px;
+    min-width: 60px;
+    color: @color-font-03;
+    .line-hidden();
+    display: inline-block;
+  }
+  .pdsdk-prompt-tip-title{
+    width: calc(~"100% - 80px");
+    color: @color-font-05;
+    .line-hidden();
+    display: inline-block;
+    .highlight{
+      font-weight: bold;
+    }
+  }
+}

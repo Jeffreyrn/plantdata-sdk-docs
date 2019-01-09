@@ -1,0 +1,87 @@
+@import "../../../../define/index";
+
+.pdvis-namespace {
+  &.pdsdk-editor-common-dialog {
+    .pdui-autocomplete {
+      width: calc(~"100% - 80px");
+      display: inline-block;
+    }
+    .pdvis-edit-item-single {
+      &[data-path="parent"] {
+        height: 32px;
+      }
+      &.success {
+        .pdui-autocomplete {
+          border-color: @color-success;
+        }
+      }
+      &.error {
+        .pdui-autocomplete {
+          border-color: @color-error;
+        }
+      }
+      label .pdvis-edit-item-label{
+        display: block;
+        width: calc(~"100% - 8px");
+        float: left;
+      }
+    }
+  }
+  .pdvis-editor-container {
+    right: 0;
+    overflow: hidden;
+    width: 40px;
+    .box-shadow;
+    .transition;
+    & > .pdvis-editor-control {
+      text-align: center;
+      background: white;
+      padding: 4px;
+      cursor: pointer;
+      border-bottom: @divider-default;
+      .pdvis-editor-control-lines {
+        width: 8px;
+        height: 8px;
+        margin: auto;
+        .transition;
+        .pdvis-editor-control-line {
+          height: 2px;
+          background: @color-font-03;
+          margin: 2px 0;
+          &:first-child, &:last-child{
+            margin: 0;
+          }
+        }
+      }
+      &:hover{
+        .pdvis-editor-control-line {
+          background: @color-primary;
+        }
+      }
+    }
+    &.expend {
+      .pdvis-editor-control-lines {
+        transform: rotate(90deg);
+      }
+      width: 110px;
+    }
+    .pdvis-tool-item {
+      &.pdsdk-editor-button-border {
+        border-bottom: 1px solid #bbb;
+      }
+      .pdvis-tool-item-text {
+        text-align: left;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .pdvis-namespace {
+    &.pdsdk-editor-common-dialog {
+      .pdui-autocomplete {
+        width: 100%;
+      }
+    }
+  }
+}

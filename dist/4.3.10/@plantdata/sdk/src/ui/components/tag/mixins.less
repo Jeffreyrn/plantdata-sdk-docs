@@ -1,0 +1,39 @@
+@import "../../../define/index";
+
+@tag-cls: ~"@{css-prefix}tag";
+
+.tag(@color-font: @color-font-04,@color-bg: @color-general-ac05,@color-bg-hover: @color-general-ac06) {
+  color: @color-font;
+  background-color: @color-bg;
+  &:hover {
+    background-color: @color-bg-hover;
+  }
+}
+
+.tag-xs() {
+  height: 24px;
+  line-height: 22px;
+  font-size: 12px;
+  padding: 0 8px;
+}
+
+.tag-sm() {
+  height: 32px;
+  line-height: 32px;
+  font-size: 14px;
+  padding: 0 16px;
+}
+
+.tag-md() {
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  padding: 0 16px;
+}
+
+.tag-lg() {
+  height: 48px;
+  line-height: 48px;
+  font-size: 18px;
+  padding: 0 32px;
+}

@@ -1,0 +1,70 @@
+@import "../../../../define/index";
+
+.pdvis-namespace {
+  .pdvis-edit-rule-panel {
+    .pdvis-edit-item {
+      position: relative;
+    }
+    .pdsdk-rule-select {
+      position: absolute;
+      top: 10px;
+      right: 16px;
+      padding-right: 0;
+    }
+    .pdvis-edit-item-editable, .pdvis-edit-item-deletable {
+      .pdsdk-rule-select {
+        right: 34px;
+      }
+    }
+    .pdvis-edit-item-editable.pdvis-edit-item-deletable {
+      .pdsdk-rule-select {
+        right: 60px;
+      }
+    }
+  }
+  &.pdvis-rule-editor {
+    max-width: 640px;
+    width: 640px;
+    .pdui-modal-body {
+      max-height: 400px;
+      .scroll;
+      overflow-x: hidden;
+    }
+    .pdvis-edit-item-single {
+      .pdui-textarea {
+      }
+    }
+    .pdui-table td {
+      padding: 0;
+    }
+    table {
+      .pdvis-edit-item-single {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        input, select {
+          border: 0;
+          background: transparent;
+          width: 120px;
+        }
+        .pdui-switch.pdui-switch-md {
+          & > input + * {
+            min-width: 56px;
+          }
+        }
+        &.error {
+          input, select {
+            border-bottom: 3px solid @color-error;
+          }
+        }
+      }
+    }
+    .pdvis-rule-add-new {
+      margin-top: 16px;
+      svg {
+        fill: @color-light;
+        vertical-align: -7px;
+      }
+    }
+  }
+}
