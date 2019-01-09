@@ -1,6 +1,7 @@
 'use strict'
 const src = '../sdk/docs'
-const docs = './dist'
+const config = require('../sdk/docs/hiekn-config.json')
+const docs = './dist/' + config.version;
 const del = require('del')
 const gulp = require('gulp')
 
