@@ -1,1 +1,0 @@
-"use strict";function default_1(t,e){return void 0===t&&(t=24),void 0===e&&(e={}),e.viewBox="0 0 24 24",e.width=t,e.height=t,utils_1.PdIconUtils.createSVGStr('<path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"></path>',e)}Object.defineProperty(exports,"__esModule",{value:!0});var utils_1=require("./utils");exports["default"]=default_1;

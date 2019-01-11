@@ -1,1 +1,0 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var ZcNetChart=require("@zc/netchart");exports.ZcNetChart=ZcNetChart;var ZNCPrefix="znc-";exports.ZNCPrefix=ZNCPrefix;
