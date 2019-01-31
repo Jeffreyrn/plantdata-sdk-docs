@@ -1,10 +1,10 @@
 var settings = {
-    kgName: 'default_graph_bak',
+    kgName: 'lengjing_test001',
     selector: '#container',
     ajaxSettings: {
-        baseUrl: 'https://test.plantdata.ai/plantdata-sdk/api/sdk/',
+        baseUrl: 'http://13.229.208.83/plantdata-sdk/api/sdk/',
         headers: {
-            APK: '58ff49bce6eb4d3c9b26a58cf592c5ab'
+            APK: 'd939e8d13e294d61b4142e707b2b6cfe'
         },
         dataFilter: function (data) {
             console.log('common dataFilter')
@@ -13,7 +13,7 @@ var settings = {
     },
     schemaSettings: {
         ajaxSettings: {
-            url: 'https://test.plantdata.ai/plantdata-sdk/api/sdk/app/schema',
+            url: 'http://13.229.208.83/plantdata-sdk/api/sdk/app/schema',
             dataFilter: function (data) {
                 console.log('schema dataFilter')
                 return data

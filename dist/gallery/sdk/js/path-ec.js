@@ -1,10 +1,10 @@
 const graph = new PdSDKEcPath({
     selector: '#container',
-    kgName: 'default_graph_bak',
+    kgName: 'lengjing_test001',
     ajaxSettings: {
-        baseUrl: 'https://test.plantdata.ai/plantdata-sdk/api/sdk/',
+        baseUrl: 'http://13.229.208.83/plantdata-sdk/api/sdk/',
         headers: {
-            APK: '58ff49bce6eb4d3c9b26a58cf592c5ab'
+            APK: 'd939e8d13e294d61b4142e707b2b6cfe'
         }
     }
 })

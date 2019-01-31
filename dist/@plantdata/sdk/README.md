@@ -26,7 +26,7 @@ const graph = new PdSDKZcGraph({
     kgName: 'sdkeditor_a5e939tqnm1qzeik',
     selector: document.getElementById('chart'),
     ajaxSettings: {
-        baseUrl: 'https://test.plantdata.ai/plantdata-sdk/api/sdk/',
+        baseUrl: 'http://13.229.208.83/plantdata-sdk/api/sdk/',
         headers: {
             APK: '8376b582b0804dd2bf4b332004498009'
         }
